@@ -9,7 +9,8 @@
     "lint:fix": "prettier . --write",
     "lint:es": "next lint",
     "dev": "next dev",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "velite:dev": "velite dev"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,8 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "prettier": "3.3.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "velite": "^0.1.1"
   },
   "dependencies": {
     "next": "^14.2.4",

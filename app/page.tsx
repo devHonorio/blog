@@ -1,3 +1,5 @@
+import { posts } from "@/velite";
+
 export default function Page() {
-  return <h1>Hello, word!</h1>;
+  return <>{posts[0].title}</>;
 }
