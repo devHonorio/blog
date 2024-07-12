@@ -1,4 +1,4 @@
-import { MdxContent } from "@/components/mdx-content";
+import { MdxContent } from "@/components/MdxContent";
 import { posts } from "@/velite";
 
 export default function Page() {
