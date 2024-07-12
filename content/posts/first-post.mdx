@@ -8,3 +8,16 @@ image: /assets/images/vaquinha.jpg
 # Fotografia de foco seletivo de vaca marrom
 
 Baixe grátis esta foto em HD de animal, fazenda, animal de criação e vacas em United Kingdom de Luke Stackpoole (@withluke)
+
+```tsx
+import { MdxContent } from "@/components/mdx-content";
+import { posts } from "@/velite";
+
+export default function Page() {
+  return (
+    <>
+      <MdxContent code={posts[0].content} />
+    </>
+  );
+}
+```

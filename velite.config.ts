@@ -1,3 +1,5 @@
+import rehypePrettyCode, { Options } from "rehype-pretty-code";
+
 import { defineConfig, s } from "velite";
 
 export default defineConfig({
@@ -13,5 +15,8 @@ export default defineConfig({
         content: s.mdx(),
       }),
     },
+  },
+  mdx: {
+    rehypePlugins: [[rehypePrettyCode, { theme: "dracula" } as Options]],
   },
 });
