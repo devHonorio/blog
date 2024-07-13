@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import "./globals.css";
 import { Figtree } from "next/font/google";
 import { headerConfig } from "@/config/header";
+import { Layout } from "@/components/Layout";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -14,11 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`bg-neutral-800 text-zinc-50 mx-auto w-10/12 mt-28 ${figtree.className}`}
-      >
+      <body className={figtree.className}>
         <Header navItens={headerConfig.navItens} />
-        {children}
+
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
