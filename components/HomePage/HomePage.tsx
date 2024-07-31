@@ -31,7 +31,7 @@ export const HomePage = ({ tag = "", pagination }: HomePageProps) => {
       <Apresentation />
 
       <S.container>
-        <Aside />
+        <Aside currentTag={tag} />
 
         <div>
           <Grid>

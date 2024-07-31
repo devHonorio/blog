@@ -10,7 +10,9 @@
     "lint:es": "next lint",
     "dev": "next dev",
     "prepare": "husky install",
-    "velite:dev": "velite dev"
+    "velite:dev": "velite dev",
+    "velite": "velite --strict",
+    "postinstall": "npm run velite --verbose"
   },
   "keywords": [],
   "author": "",
@@ -41,7 +43,8 @@
   "lint-staged": {
     "*/**": [
       "npm run lint:fix",
-      "npm run lint:es"
+      "npm run lint:es",
+      "npm run velite"
     ]
   }
 }

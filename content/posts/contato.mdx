@@ -1,0 +1,24 @@
+---
+title: Contato
+description: Contatos e redes sociais
+date: 2024-07-31 20:00
+image: /assets/jose-honorio.jpg
+tags: [contato]
+---
+
+# Contato
+
+José Honorio de Oliveira Sobrinho Neto
+
+```tsx
+import { MdxContent } from "@/components/mdx-content";
+import { posts } from "@/velite";
+
+export default function Page() {
+  return (
+    <>
+      <MdxContent code={posts[0].content} />
+    </>
+  );
+}
+```

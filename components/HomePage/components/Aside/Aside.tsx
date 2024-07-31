@@ -1,34 +1,35 @@
-"use client";
 import * as S from "./styles";
 
-import { usePathname } from "next/navigation";
 import { getAllTags } from "@/utils/getAllTags";
 
-export const Aside = () => {
-  const path = usePathname();
+interface AsideProps {
+  currentTag?: string;
+}
+
+export const Aside = ({ currentTag = "" }: AsideProps) => {
   const tags = getAllTags();
 
   return (
     <S.container>
-      <S.link href={`/#tags`} data-active={path === `/`}>
+      <S.link href={`/#tags`} data-active={currentTag === ""}>
         Todos
       </S.link>
 
-      <TagLinks tags={tags} path={path} />
+      <TagLinks tags={tags} currentTag={currentTag} />
     </S.container>
   );
 };
 
 interface TagLinksProps {
   tags: string[];
-  path?: string;
+  currentTag?: string;
 }
-const TagLinks = ({ tags, path }: TagLinksProps) =>
+const TagLinks = ({ tags, currentTag }: TagLinksProps) =>
   tags.map((tag) => (
     <S.link
       href={`/?tag=${tag}#tags`}
       key={tag}
-      data-active={path === `/${tag}`}
+      data-active={tag === currentTag}
     >
       {tag}
     </S.link>
