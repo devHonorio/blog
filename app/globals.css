@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #262626;
-  color: #fafafa;
+/* Seletores comuns para a maioria dos navegadores */
+::-webkit-scrollbar {
+  height: 2px; /* Altura da barra */
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6ee7b71a;
+}
+
+/* Estilos para quando o mouse está sobre a barra */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
 }

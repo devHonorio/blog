@@ -13,7 +13,7 @@ export default defineConfig({
         description: s.string(),
         image: s.string(),
         content: s.mdx(),
-        tags: s.array(s.string()),
+        tags: s.array(s.string().toLowerCase()),
       }),
     },
   },

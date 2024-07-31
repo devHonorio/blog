@@ -7,8 +7,9 @@ export const container = tw.div`
 flex
 items-center
 gap-5
+font-bold
 `;
 export const image = tw(Image)`
-w-16
+w-12
 rounded-full
 `;
