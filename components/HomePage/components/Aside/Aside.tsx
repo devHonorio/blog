@@ -10,7 +10,7 @@ export const Aside = ({ currentTag = "" }: AsideProps) => {
   const tags = getAllTags();
 
   return (
-    <S.container>
+    <S.container id="tags">
       <S.link href={`/#tags`} data-active={currentTag === ""}>
         Todos
       </S.link>

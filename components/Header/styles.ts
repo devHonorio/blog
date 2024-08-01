@@ -5,4 +5,5 @@ flex
 items-center
 pt-5
 justify-between
+relative
 `;
