@@ -10,6 +10,7 @@ export interface PostCardProps {
   description: string;
   date: string;
   tags: string[];
+  slug: string;
 }
 export const PostCard = ({
   image,
@@ -17,9 +18,10 @@ export const PostCard = ({
   description,
   date,
   tags,
+  slug,
 }: PostCardProps) => {
   return (
-    <Link href="/posts/first-post-1">
+    <Link href={`/posts/${slug}`}>
       <S.container>
         <S.imageContainer>
           <S.image

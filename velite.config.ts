@@ -1,6 +1,7 @@
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 
 import { defineConfig, s } from "velite";
+import { slugify } from "./utils/slugFy";
 
 export default defineConfig({
   collections: {
@@ -14,6 +15,9 @@ export default defineConfig({
         image: s.string(),
         content: s.mdx(),
         tags: s.array(s.string().toLowerCase()),
+        slug: s.path().transform((slug) => {
+          return slugify(slug.replace("posts/", ""));
+        }),
       }),
     },
   },

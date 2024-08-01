@@ -5,7 +5,7 @@ interface PostsProps {
 }
 
 export const Posts = ({ data }: PostsProps) => {
-  return data?.map(({ title, description, image, date, tags }, index) => {
+  return data?.map(({ title, description, image, date, tags, slug }, index) => {
     return (
       <PostCard
         key={`${title}-${index}`}
@@ -14,6 +14,7 @@ export const Posts = ({ data }: PostsProps) => {
         description={description}
         date={date}
         tags={tags}
+        slug={slug}
       />
     );
   });
