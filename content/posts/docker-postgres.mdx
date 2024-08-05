@@ -1,0 +1,48 @@
+---
+title: Como subir um bando de dados Postgres com Docker
+description: Você vai aprender um pouco da história antes do docker e como utilizá-lo para subir um serviço de banco de dados
+date: 2024-08-04
+image: /assets/images/docker-logo.png
+tags:
+  - docker
+  - postgresql
+---
+# Antes do Docker
+
+Antes do Docker existia um grande problema na padronização de ambientes, um grande exemplo é quando duas pessoas iriam subir um banco de dados, e mesmo essas pessoas seguindo um mesmo tutorial, em uma maquina funcionava e na outra não, isso ocorre porque mesmo subindo um banco de dados igual, o ambiente onde ele esta sendo levantado tem suas diferenças, como qual sistema operacional esta usando, ou qual versão desse mesmo sistema, ou mesmo as diferença de hardware.
+dede
+
+## Soluções alternativas
+Uma das soluções encontrada foi a virtualização de sistemas operacionais sendo principalmente utilizado o VitualBox, nesse você configura uma maquina com o hardware e sistema operacional que desejar. Porém essa solução ocupava muita memória, e para cada nova virtualização você separa um “pedaço” do seu computador.
+
+# Depois do Docker
+
+Em 2013 [Solomon Hykes](https://fr.wikipedia.org/wiki/Solomon_Hykes) “encontrou” dois recursos no linux que já existia desde 2002 (Name Spaces) e 2007 (cgroups) de que são os `Namespace` um recurso onde se pode isolar processos usando um mesmo kernel, e o cgroups ou Control Groups que um recurso que tem controle granular desses processos onde por exemplo pode limitar o quanto de memória um processo pode usar, Solomo Hykes teve a sacada de criar uma abstração para esse recurso e o chamou de Docker
+
+No caso ele não criou nada, apenas desenvolveu uma interface mais amigável, com isso agora podemos “usar um sistema operacional” sem ter que rodar outro sistema operacional.
+
+# Passo a passo
+
+- Primeiro por padrão devemos criar um arquivo na raiz do projeto chamado `compose.yaml` (YAML Ain’t MarkupLanguage) que significa yaml que é um superset `json`, um arquivo para guardar informações, como por exemplo a configuração de algo.
+- Colocamos nesse arquivo os serviços que queremos colocar, em nosso caso vamos usar uma image pronta então colocamos `services` ,`database`, `image` que escolher
+- Vamos usar uma image alpine do postgres que pegamos no docker hub
+- A imagem do postgres precisa de algumas variáveis de ambiente e uma obrigatoria que é `POSTGRES_PASSWORD`
+- `docker compose up` comando para subir container
+
+```yaml
+services:
+  database:
+    image: 'postgres:16.1-alpine3.19'
+    environment:
+      POSTGRES_PASSWORD: 'local_password'
+    ports:
+      - '5432:5432'
+```
+
+Após a criação desse arquivo basta dar o seguindo comando no terminal ``
+
+```bash
+docker compose up
+```
+
+Prontinho seu serviço da banco de dados postgres já está pronto para receber conexões. Muito simples não é mesmo ?
