@@ -16,6 +16,8 @@ export default function Post({ params }: PostProps) {
 
   if (!post) return null;
 
+  const dateObj = new Date(post.date);
+
   return (
     <>
       <S.back onClick={() => window.history.back()}>
@@ -27,6 +29,14 @@ export default function Post({ params }: PostProps) {
         <S.imageContainer>
           <S.image src={post.image} alt={post.title} fill />
         </S.imageContainer>
+
+        <S.date>
+          {Intl.DateTimeFormat("pt-BR", { dateStyle: "long" }).format(dateObj)}
+        </S.date>
+
+        <S.title>{post.title}</S.title>
+
+        <S.description>{post.description}</S.description>
 
         <MdxContent code={post.content} />
       </S.content>

@@ -5,6 +5,7 @@ import { Figtree } from "next/font/google";
 import { headerConfig } from "@/config/header";
 import { Layout } from "@/components/Layout";
 import { useState } from "react";
+import { Footer } from "@/components/Footer";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -25,6 +26,8 @@ export default function RootLayout({
         <Header navItens={headerConfig.navItens} />
 
         <Layout>{children}</Layout>
+
+        <Footer />
       </body>
     </html>
   );

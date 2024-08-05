@@ -16,7 +16,7 @@ hover:text-black
 `;
 
 export const content = tw.div`
-max-w-5xl
+max-w-4xl
 mx-auto
 `;
 
@@ -31,4 +31,22 @@ export const image = tw(Image)`
 rounded-xl
 object-cover
 object-center
+`;
+
+export const date = tw.p`
+mt-10
+text-sm
+text-neutral-200/70
+`;
+
+export const title = tw.h1`
+text-6xl
+font-bold
+my-5
+`;
+
+export const description = tw(date)`
+mt-0
+text-xl
+mb-10
 `;
