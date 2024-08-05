@@ -24,7 +24,7 @@ gap-5
 export const copyright = tw.div`
 `;
 
-export const socialItem = tw.div`
+export const socialItem = tw.a`
 p-2
 rounded
 bg-gradient-to-br

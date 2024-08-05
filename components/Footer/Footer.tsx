@@ -11,15 +11,18 @@ export const Footer = () => {
       </S.creator>
 
       <S.social>
-        <S.socialItem>
+        <S.socialItem target="_blank" href="https://github.com/devHonorio">
           <S.github />
         </S.socialItem>
 
-        <S.socialItem>
+        <S.socialItem
+          target="_blank"
+          href="https://www.instagram.com/honorio.click/"
+        >
           <S.instagram />
         </S.socialItem>
 
-        <S.socialItem>
+        <S.socialItem target="_blank" href="https://wa.me/5546999784784">
           <S.whatsapp />
         </S.socialItem>
       </S.social>
