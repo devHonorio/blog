@@ -20,6 +20,7 @@ export const PostCard = ({
   tags,
   slug,
 }: PostCardProps) => {
+  const dateObj = new Date(date);
   return (
     <Link href={`/posts/${slug}`}>
       <S.container>
@@ -33,7 +34,10 @@ export const PostCard = ({
           />
         </S.imageContainer>
 
-        <S.time>13 de junho de 2023 • 4 minutos de leitura</S.time>
+        <S.time>
+          {Intl.DateTimeFormat("pt-BR", { dateStyle: "long" }).format(dateObj)}{" "}
+          • 4 minutos de leitura
+        </S.time>
 
         <S.title>{title}</S.title>
 

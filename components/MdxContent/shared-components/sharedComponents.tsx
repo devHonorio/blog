@@ -3,32 +3,32 @@ import { MDXComponents } from "mdx/types";
 export const sharedComponents: MDXComponents = {
   h1: ({ className, ...props }) => (
     <h1
-      className={`text-4xl font-bold text-emerald-300 pt-3 pb-2  ${className}`}
+      className={`text-4xl font-bold text-emerald-300 pt-10 pb-2  ${className}`}
       {...props}
     />
   ),
   h2: ({ className, ...props }) => (
     <h2
-      className={`text-3xl font-bold text-emerald-300 pt-3 pb-2  ${className}`}
+      className={`text-3xl font-bold text-emerald-300 pt-10 pb-2  ${className}`}
       {...props}
     />
   ),
   h3: ({ className, ...props }) => (
     <h3
-      className={`text-2xl font-bold text-emerald-300 pt-3 pb-2  ${className}`}
+      className={`text-2xl font-bold text-emerald-300 pt-10 pb-2  ${className}`}
       {...props}
     />
   ),
   h4: ({ className, ...props }) => (
     <h4
-      className={`text-xl font-bold text-emerald-300 pt-3 pb-2  ${className}`}
+      className={`text-xl font-bold text-emerald-300 pt-10 pb-2  ${className}`}
       {...props}
     />
   ),
 
   h5: ({ className, ...props }) => (
     <h5
-      className={`text-lg font-bold text-emerald-300 pt-3 pb-2  ${className}`}
+      className={`text-lg font-bold text-emerald-300 pt-10 pb-2  ${className}`}
       {...props}
     />
   ),
@@ -47,5 +47,12 @@ export const sharedComponents: MDXComponents = {
   ),
   code: ({ className, ...props }) => (
     <code className={` text-sm  ${className}`} {...props} />
+  ),
+
+  ul: ({ className, ...props }) => (
+    <ul className={`pl-10 ${className}`} {...props} />
+  ),
+  li: ({ className, ...props }) => (
+    <li className={`list-disc py-2 ${className}`} {...props} />
   ),
 };
