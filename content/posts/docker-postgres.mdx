@@ -9,25 +9,42 @@ tags:
 ---
 # Antes do Docker
 
-Antes do Docker existia um grande problema na padronização de ambientes, um grande exemplo é quando duas pessoas iriam subir um banco de dados, e mesmo essas pessoas seguindo um mesmo tutorial, em uma maquina funcionava e na outra não, isso ocorre porque mesmo subindo um banco de dados igual, o ambiente onde ele esta sendo levantado tem suas diferenças, como qual sistema operacional esta usando, ou qual versão desse mesmo sistema, ou mesmo as diferença de hardware.
-dede
+Antes do Docker, era um caos total pra deixar dois ambientes iguais! Imagina tentar rodar um banco de dados em duas máquinas diferentes? Mesmo seguindo o tutorial direitinho, uma máquina funcionava beleza e na outra, nada! Isso acontecia por causa de um monte de diferença entre as máquinas, tipo o sistema operacional, a versão, o hardware... Era de dar nos nervos!
 
 ## Soluções alternativas
-Uma das soluções encontrada foi a virtualização de sistemas operacionais sendo principalmente utilizado o VitualBox, nesse você configura uma maquina com o hardware e sistema operacional que desejar. Porém essa solução ocupava muita memória, e para cada nova virtualização você separa um “pedaço” do seu computador.
+O pessoal tentou usar o VirtualBox pra ter vários sistemas operacionais no mesmo computador, cada um com suas configurações. Era tipo ter vários computadores dentro de um só! Mas aí veio o problema: isso consumia muita memória RAM e ainda deixava o HD todo picado, sabe? Deixava o computador lento pra burro!
 
 # Depois do Docker
 
-Em 2013 [Solomon Hykes](https://fr.wikipedia.org/wiki/Solomon_Hykes) “encontrou” dois recursos no linux que já existia desde 2002 (Name Spaces) e 2007 (cgroups) de que são os `Namespace` um recurso onde se pode isolar processos usando um mesmo kernel, e o cgroups ou Control Groups que um recurso que tem controle granular desses processos onde por exemplo pode limitar o quanto de memória um processo pode usar, Solomo Hykes teve a sacada de criar uma abstração para esse recurso e o chamou de Docker
+Em 2013, um cara chamado Solomon Hykes teve uma grande ideia. Ele pegou duas ferramentas do Linux que já existiam há um tempinho, os Namespaces e os cgroups, e criou uma interface chamada Docker.
 
-No caso ele não criou nada, apenas desenvolveu uma interface mais amigável, com isso agora podemos “usar um sistema operacional” sem ter que rodar outro sistema operacional.
+**Mas o que isso significa?** Imagine que cada programa que você usa no computador é como um plantinha. Com o Docker, você coloca cada plantinha em um vasinho separado, mas todas compartilham a mesma terra (o sistema operacional). Assim, cada plantinha pode crescer sem atrapalhar as outras.
+
+Hykes não inventou as plantinhas nem a terra, mas ele teve a ideia de criar esses vasinhos super legais e fáceis de usar. Com o Docker, você pode criar e gerenciar seus programas de forma muito mais simples e eficiente sem ter quer rodar um sitema operacional inteiro dentro de outro!
 
 # Passo a passo
 
-- Primeiro por padrão devemos criar um arquivo na raiz do projeto chamado `compose.yaml` (YAML Ain’t MarkupLanguage) que significa yaml que é um superset `json`, um arquivo para guardar informações, como por exemplo a configuração de algo.
-- Colocamos nesse arquivo os serviços que queremos colocar, em nosso caso vamos usar uma image pronta então colocamos `services` ,`database`, `image` que escolher
-- Vamos usar uma image alpine do postgres que pegamos no docker hub
-- A imagem do postgres precisa de algumas variáveis de ambiente e uma obrigatoria que é `POSTGRES_PASSWORD`
-- `docker compose up` comando para subir container
+### 1. Crie um arquivo compose.yml
+
+- **Localização:** Na raiz do seu projeto.
+- **Formato:** YAML, que é uma forma legível por humanos de organizar dados. É similar ao JSON, mas com algumas funcionalidades extras.
+
+### 2. Defina os serviços
+
+- **services:** Essa seção é onde você lista os serviços que compõem o seu aplicativo.
+- **database:** Neste exemplo, vamos criar um serviço chamado "database" para o nosso banco de dados PostgreSQL.
+- **image:** Aqui você especifica a imagem do Docker que será utilizada para criar o contêiner. No nosso caso, usaremos a imagem oficial do PostgreSQL da Alpine Linux.
+
+### 3. Configure as variáveis de ambiente
+
+- **Variáveis de ambiente:** São utilizadas para personalizar a configuração do contêiner.
+- **POSTGRES_PASSWORD:** Essa é uma variável obrigatória para o PostgreSQL, definindo a senha do usuário padrão.
+
+### 4. Execute o comando para subir os contêineres
+
+- **docker compose up:** Este comando lê o arquivo compose.yml e cria e inicia os contêineres definidos nele.
+
+## Exemplo de um arquivo compose.yml para o PostgreSQL:
 
 ```yaml
 services:
