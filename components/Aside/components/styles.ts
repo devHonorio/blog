@@ -1,14 +1,6 @@
 import Link from "next/link";
 import tw from "tailwind-styled-components";
 
-export const container = tw.aside`
-flex
-overflow-x-auto
-lg:flex-col
-lg:max-w-60
-lg:w-full
-`;
-
 export const link = tw(Link)`
 hover:bg-emerald-300/5
 text-start

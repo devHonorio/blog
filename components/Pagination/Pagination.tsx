@@ -16,6 +16,7 @@ export const Pagination = ({ page, tag, total, limit }: PaginationProps) => {
   const prevpageParam = `page=${prevPage}`;
   const nextpageParam = `page=${nextPage}`;
   const limitParam = `limit=${limit}`;
+
   return (
     <S.container>
       {page > 1 && (
