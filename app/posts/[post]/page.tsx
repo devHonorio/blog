@@ -5,7 +5,6 @@ import * as S from "./styles";
 import { posts } from "@/.velite";
 import { MdxContent } from "@/components/MdxContent";
 import { ChevronLeft } from "lucide-react";
-import Image from "next/image";
 
 interface PostProps {
   params: { post: string };

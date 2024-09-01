@@ -11,20 +11,31 @@ interface PaginationProps {
 export const Pagination = ({ page, tag, total, limit }: PaginationProps) => {
   const prevPage = page - 1;
   const nextPage = page + 1;
+
+  const tagParam = `tag=${tag}`;
+  const prevpageParam = `page=${prevPage}`;
+  const nextpageParam = `page=${nextPage}`;
+  const limitParam = `limit=${limit}`;
   return (
     <S.container>
       {page > 1 && (
-        <S.Left href={`/?tag=${tag}&page=${prevPage}#pagination`}>
+        <S.Left
+          href={`/?${tagParam}&${prevpageParam}&${limitParam}`}
+          scroll={false}
+        >
           <ChevronLeft />
         </S.Left>
       )}
 
-      <span id="pagination">
+      <span>
         {page} de {total}
       </span>
 
       {page < total && (
-        <S.Right href={`/?tag=${tag}&page=${nextPage}#pagination`} className="">
+        <S.Right
+          href={`/?${tagParam}&${nextpageParam}&${limitParam}`}
+          scroll={false}
+        >
           <ChevronRight />
         </S.Right>
       )}

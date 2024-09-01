@@ -1,3 +1,4 @@
+"use client";
 import * as S from "./styles";
 
 import { posts as postsBlog } from "@/.velite";
@@ -6,25 +7,20 @@ import { Apresentation } from "./components/Apresentation";
 import { Aside } from "./components/Aside";
 import { Posts } from "./components/Posts";
 import { Pagination } from "../Pagination";
+import { useSearchParams } from "next/navigation";
 
-interface HomePageProps {
-  tag?: string;
-  pagination?: {
-    page: number;
-    limit: number;
-  };
-}
-export const HomePage = ({ tag = "", pagination }: HomePageProps) => {
+export const HomePage = () => {
+  const searchParams = useSearchParams();
+
+  const tag = searchParams.get("tag") ?? "";
+  const page = searchParams.get("page") ?? 1;
+  const limit = searchParams.get("limit") ?? 10;
+
   const posts = !tag
     ? postsBlog
     : postsBlog.filter((post) => post.tags.includes(tag));
 
-  const postspagination = pagination
-    ? posts.slice(
-        (pagination.page - 1) * pagination.limit,
-        pagination.page * pagination.limit,
-      )
-    : posts;
+  const postspagination = posts.slice((+page - 1) * +limit, +page * +limit);
 
   return (
     <>
@@ -38,14 +34,12 @@ export const HomePage = ({ tag = "", pagination }: HomePageProps) => {
             <Posts data={postspagination} />
           </Grid>
 
-          {pagination && (
-            <Pagination
-              page={pagination.page}
-              limit={pagination.limit}
-              total={Math.ceil(posts.length / pagination.limit)}
-              tag={tag}
-            />
-          )}
+          <Pagination
+            page={+page}
+            limit={+limit}
+            total={Math.ceil(posts.length / +limit)}
+            tag={tag}
+          />
         </div>
       </S.container>
     </>

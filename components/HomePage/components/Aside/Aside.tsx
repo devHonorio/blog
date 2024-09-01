@@ -3,15 +3,15 @@ import * as S from "./styles";
 import { getAllTags } from "@/utils/getAllTags";
 
 interface AsideProps {
-  currentTag?: string;
+  currentTag: string;
 }
 
 export const Aside = ({ currentTag = "" }: AsideProps) => {
   const tags = getAllTags();
 
   return (
-    <S.container id="tags">
-      <S.link href={`/#tags`} data-active={currentTag === ""}>
+    <S.container>
+      <S.link href={`/`} scroll={false} data-active={currentTag === ""}>
         Todos
       </S.link>
 
@@ -27,8 +27,9 @@ interface TagLinksProps {
 const TagLinks = ({ tags, currentTag }: TagLinksProps) =>
   tags.map((tag) => (
     <S.link
-      href={`/?tag=${tag}#tags`}
+      href={`/?tag=${tag}`}
       key={tag}
+      scroll={false}
       data-active={tag === currentTag}
     >
       {tag}
