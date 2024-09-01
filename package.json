@@ -9,6 +9,7 @@
     "lint:fix": "prettier . --write",
     "lint:es": "next lint",
     "dev": "next dev",
+    "build": "next build",
     "prepare": "husky install",
     "velite:dev": "velite dev",
     "velite": "velite --strict",
@@ -44,7 +45,8 @@
     "*/**": [
       "npm run lint:fix",
       "npm run lint:es",
-      "npm run velite --strict"
+      "npm run velite --strict",
+      "npm run build"
     ]
   }
 }
