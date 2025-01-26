@@ -1,0 +1,39 @@
+---
+title: O que são protocolos ?
+description: Protocolos explicado de forma simples
+date: 2025-01-24 14:00
+image: /assets/images/quebra-cabeca.png
+tags: [internet]
+---
+
+# Protocolos
+
+Protocolos são acordos que duas partes seguem para poderem se comunicar, como o inicio de uma conversa, ou onde preencho uma certa informação para entrar em um determinado lugar.
+
+## Exemplo
+
+Um exemplo de protocolo é a brincadeira telefone sem fio.
+
+O protocolo definido é:
+
+- Dizer algo sussurrado na orelha do seu amigo
+- Passar para o próximo
+
+Porém como esse protocolo não segue nenhuma regra de validação, muitas vezes a mensagens não cheguem de forma correta até a ultima pessoa.
+
+## Realidade
+
+Na internet também temos problemas parecidos de perca de dados, e para isso temos um protocolo o `TCP`. Esse protocolo tem um `Error Recovery`, onde se uma informação não chega de forma integral, ele pede para que seja reenviadab até que fique completa.
+
+Os protocolos podem ser montados um sobre o outro por exemplo o `HTTP` que define como informações web são trocadas e o `TCP` que valida se as informações estão completas, e que para transitar os dados pelos tuneis que conectam a internet usa o `IP`.
+
+Para fazermos transferencias pelo IP não necessariamente precisamos do `TCP`, pois ele é uma validação e isso tem um custo que é o tempo de transferência.
+
+Uma chamada de vídeo, não importa se um frame se perdeu no meio do caminho pois é melhor continuar a chamada, do que esperar sincronizar, pois aquela informação já ficou velha, para isso é muito mais comum usar um protocolo `UDP`, onde os dados são independentes e não precisam de validação das partes, se algo é pertido isso é preenchido e interpulado. O protocolo `UDP` é muito usado em jogos como Fortnite quando o jogador está com latencia o personagem pula ou laga.
+
+- TCP: Transmission Control Protocol
+- HTTP: Hyypertext Transfer Protocol
+- FTP: File Transfer Protocel
+- SMTP: Simple Mail Transfer Protocol
+- IP: Internet Protocol
+- UDP: User Datagram Protocol
